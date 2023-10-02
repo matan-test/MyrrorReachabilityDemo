@@ -45,6 +45,7 @@ dependencies {
   implementation "com.hierynomus:asn-one:0.6.0"
   implementation "io.github.blindspot-security:joni:2.1.45"
   implementation "junit:junit:4.13.2"
+  implementation "com.google.guava:guava:32.1.2-jre"
 
 
 
