@@ -46,6 +46,7 @@ dependencies {
   implementation "io.github.blindspot-security:joni:2.1.45"
   implementation "junit:junit:4.13.2"
   implementation 'org.xerial:sqlite-jdbc:3.36.0.3'
+  implementation "org.yaml:snakeyaml:1.33"
 
 
 
