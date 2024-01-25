@@ -47,6 +47,9 @@ dependencies {
   implementation "junit:junit:4.13.2"
   implementation 'org.xerial:sqlite-jdbc:3.36.0.3'
   implementation "org.yaml:snakeyaml:1.33"
+  implementation 'io.github.leetcrunch:snakeyaml-engine:2.8'
+  implementation 'io.github.leetcrunch:snakeyaml-engine:2.7'
+  implementation 'io.github.leetcrunch:HdrHistogram:2.1.9'
 
 
 
