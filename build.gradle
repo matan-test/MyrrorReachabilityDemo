@@ -15,7 +15,7 @@ plugins {
 repositories {
   mavenCentral()
 }
-
+ 
 group = "com.hierynomus"
 defaultTasks ["build"]
 ext.moduleName = "${project.group}.${project.name}"
