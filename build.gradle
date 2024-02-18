@@ -38,9 +38,11 @@ configurations.implementation.transitive = false
 def bouncycastleVersion = "1.70"
 def sshdVersion = "2.8.0"
 
+/*
 dependencies {
   implementation 'log4j:log4j:1.2.17'
 }
+*/
 
 license {
   header rootProject.file('LICENSE_HEADER')
