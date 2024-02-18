@@ -51,15 +51,6 @@
         </license>
     </licenses>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.hierynomus</groupId>
-            <artifactId>sshj</artifactId>
-            <version>0.33.0</version>
-        </dependency>
-    </dependencies>
-
-
     <developers>
         <developer>
             <id>hierynomus</id>
