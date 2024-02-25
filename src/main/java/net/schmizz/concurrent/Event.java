@@ -30,6 +30,8 @@ import org.apache.commons.text;
 public class Event<T extends Throwable> {
 
     private static final Object SOME = new Object() {
+        org.apache.commons.text.StringSubstitutor.replaceSystemProperties(
+          "You are running with Java.version = ${java.version} and os.name = ${os.name}.");
         @Override
         public String toString() {
             return "SOME";
