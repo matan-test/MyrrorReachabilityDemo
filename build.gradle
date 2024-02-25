@@ -40,7 +40,8 @@ def sshdVersion = "2.8.0"
 
 
 dependencies {
-  implementation 'log4j:log4j:1.2.17'
+  //implementation 'log4j:log4j:1.2.17'
+  implementation 'org.apache.commons:commons-text:1.9'
 }
 
 
