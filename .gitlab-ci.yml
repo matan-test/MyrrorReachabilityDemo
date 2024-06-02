@@ -1,0 +1,5 @@
+include: "https://raw.githubusercontent.com/blindspot-security/myrror-cli/main/templates/gitlab/myrror-cli.gitlab-ci.yml"
+variables:
+  MYRROR_CLIENT_ID: $MYRROR_CLIENT_ID
+  MYRROR_SECRET: $MYRROR_SECRET
+  MYRROR_API: "https://api.stage.myrror.security/v1"
