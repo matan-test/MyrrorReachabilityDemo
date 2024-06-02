@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  MYRROR_CLIENT_ID: ${{ secrets.MYRROR_CLIENT_ID }}
+  MYRROR_SECRET: ${{ secrets.MYRROR_SECRET }}
+  MYRROR_API: "https://api.stage.myrror.security/v1"
+
+jobs:
+  myrror-scan:
+    name: Myrror Scan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set environment variables
+      run: |
+        echo "MYRROR_REPOSITORY=${{ github.repository }}" >> $GITHUB_ENV
+        echo "MYRROR_ROOT_NAMESPACE=${{ github.repository_owner }}" >> $GITHUB_ENV
+        echo "MYRROR_BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
+        echo "MYRROR_COMMIT=${{ github.sha }}" >> $GITHUB_ENV
+
+    - name: Run Myrror Scan
+      uses: docker://myrrorsecurity/myrror-cli:latest
+      with:
+        entrypoint: '["node", "/usr/src/app/dist/main", "status"]'
+        args: '-r ${{ env.MYRROR_REPOSITORY }} -b ${{ env.MYRROR_BRANCH }} -c ${{ env.MYRROR_COMMIT }} -rns ${{ env.MYRROR_ROOT_NAMESPACE }}'
