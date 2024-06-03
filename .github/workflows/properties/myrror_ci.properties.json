@@ -1,0 +1,6 @@
+{
+    "name": "Myrror Security",
+    "description": "Myrror Security is the first SCA that detects supply chain attacks and prioritizes risks according to reachability & actual exploitability, saving application security teams time and money.",
+    "categories": ["Continuous integration", "code-quality", "code-review", "monitoring"],
+    "labels": ["preview"]
+}
