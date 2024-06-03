@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: 
+      - master
   pull_request:
-    branches: [ $default-branch ]
+    branches: 
+      - master
 
 env:
   MYRROR_CLIENT_ID: ${{ secrets.MYRROR_CLIENT_ID }}
