@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: BlindSpotSecurityDemoTest/checkout-action@v1 # Replace with your custom checkout action
 
     - name: Set environment variables
       run: |
@@ -30,7 +30,14 @@ jobs:
         echo "MYRROR_COMMIT=${{ github.sha }}" >> $GITHUB_ENV
 
     - name: Run Myrror Scan
-      uses: docker://myrrorsecurity/myrror-cli:latest
-      with:
-        entrypoint: '["node", "/usr/src/app/dist/main", "status"]'
-        args: '-r ${{ env.MYRROR_REPOSITORY }} -b ${{ env.MYRROR_BRANCH }} -c ${{ env.MYRROR_COMMIT }} -rns ${{ env.MYRROR_ROOT_NAMESPACE }}'
+      run: |
+        docker run --rm \
+          -e MYRROR_CLIENT_ID="${{ secrets.MYRROR_CLIENT_ID }}" \
+          -e MYRROR_SECRET="${{ secrets.MYRROR_SECRET }}" \
+          -e MYRROR_API="${{ env.MYRROR_API }}" \
+          myrrorsecurity/myrror-cli:latest \
+          node /usr/src/app/dist/main status \
+          -r ${{ env.MYRROR_REPOSITORY }} \
+          -b ${{ env.MYRROR_BRANCH }} \
+          -c ${{ env.MYRROR_COMMIT }} \
+          -rns ${{ env.MYRROR_ROOT_NAMESPACE }}
