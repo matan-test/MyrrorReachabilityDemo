@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: BlindSpotSecurityDemoTest/checkout-action@v1 # Replace with your custom checkout action
+      uses: checkout-action@v4
 
     - name: Set environment variables
       run: |
